@@ -6,12 +6,13 @@ import {HashRouter} from 'react-router-dom'
 
 function App() {
     return (
-        <div>
-            <HashRouter>
+        <HashRouter>
+            <div>
                 <Header/>
                 <Routes/>
-            </HashRouter>
-        </div>
+                <h6>v.0.01</h6>
+            </div>
+        </HashRouter>
     )
 }
 
