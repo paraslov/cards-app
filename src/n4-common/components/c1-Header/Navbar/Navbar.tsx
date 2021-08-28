@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import {PATH} from '../../../../n1-app/routes/Routes'
-import s from './Navbar.module.css'
+import s from './Navbar.module.scss'
 
 export const Navbar = () => {
     return (
