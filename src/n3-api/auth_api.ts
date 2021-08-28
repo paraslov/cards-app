@@ -5,10 +5,23 @@ const restorePassMessage = `<div style="background-color: lime; padding: 15px">
     password recovery link: <a href='https://paraslov.github.io/cards-app/#/set-new-password/$token$'>
                             link</a></div>`
 
+export type TLoginParams = {
+    email: string
+    password: string
+    rememberMe: boolean
+}
+
+export type TLoginResponseType = {
+    _id: string,
+    email: string,
+    name: string,
+    avatar: string,
+    publicCardPacksCount: number,
+}
 
 export const authAPI = {
-    login(email: string, password: string, rememberMe: boolean) {
-        return instance.post('auth/login', {email, password, rememberMe}).then(res => res.data)
+    login(payload: TLoginParams) {
+        return instance.post<TLoginResponseType>('auth/login', {...payload}).then(res => res.data)
     },
     logout() {
         return instance.delete('auth/me').then(res => res.data)
