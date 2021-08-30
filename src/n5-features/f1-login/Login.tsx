@@ -26,27 +26,39 @@ export const Login = () => {
         }
     })
 
-    if(isAuth) return <Redirect to={PATH.PROFILE}/>
+    if (isAuth) return <Redirect to={PATH.PROFILE}/>
 
     return (
-        <div className={s.loginContainer}>
-            <form onSubmit={formik.handleSubmit}>
-                <SuperInputText name={'email'}
-                                className={s.loginItem}
-                                placeholder={'Enter your email'}
-                                type={'text'}
-                                onChange={formik.handleChange}
-                                value={formik.values.email}/>
-                <SuperInputText name={'password'}
-                                className={s.loginItem}
-                                placeholder={'Enter your password'}
-                                type={'password'}
-                                onChange={formik.handleChange}
-                                value={formik.values.password}/>
-                <SuperCheckbox className={s.loginItem} name={'rememberMe'} onChange={formik.handleChange}/>
-                <NavLink to={PATH.REGISTRATION}>Don't have an account yet? Sign Up!</NavLink>
-                <SuperButton className={s.loginItem} type={'submit'}>Sign in</SuperButton>
-            </form>
+        <div className={s.container}>
+            <div className={s.loginContainer}>
+                <form onSubmit={formik.handleSubmit} className={s.form}>
+                    <div className={s.header}>
+                        <h2>It-incubator</h2>
+                        <h3>Sign in</h3>
+                    </div>
+                    <SuperInputText name={'email'}
+                                    className={s.loginItem}
+                                    placeholder={'Enter your email'}
+                                    type={'text'}
+                                    onChange={formik.handleChange}
+                                    value={formik.values.email}/>
+
+                    <SuperInputText name={'password'}
+                                    className={s.loginItem}
+                                    placeholder={'Enter your password'}
+                                    type={'password'}
+                                    onChange={formik.handleChange}
+                                    value={formik.values.password}/>
+                    <div>
+                        <SuperCheckbox name={'rememberMe'} onChange={formik.handleChange}
+                                        children={'remember me'}/>
+                    </div>
+                    <span>Forgot password</span>
+                    <SuperButton className={s.loginItem} type={'submit'}>Sign in</SuperButton>
+                    <span>Don't have an account?</span>
+                    <NavLink to={PATH.REGISTRATION}>Sign up</NavLink>
+                </form>
+            </div>
         </div>
     )
 }
