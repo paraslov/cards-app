@@ -10,7 +10,7 @@ function App() {
             <div className={'App'}>
                 <Header/>
                 <Routes/>
-                <h6>v.1.03</h6>
+                <h6>v.1.04 test</h6>
             </div>
         </HashRouter>
     )
